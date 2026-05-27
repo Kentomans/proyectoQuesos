@@ -1,43 +1,84 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Calculo</ion-title>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/home">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Cálculo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <main class="app-page">
     <section class="content-shell calculation-section" aria-labelledby="calculation-title">
-      <div>
-        <h1 id="calculation-title" class="page-title">Ingredientes</h1>
-        <p class="page-copy">Ingresa los litros de leche para calcular las cantidades proporcionales.</p>
+
+      <div class="header-block">
+        <h1 id="calculation-title" class="page-title">
+          🧀 Ingredientes
+        </h1>
+        <p class="page-copy">
+          Ingresa los litros de leche para calcular las cantidades proporcionales de sal y cuajo.
+        </p>
+      </div>
+
+      <div class="divider-row">
+        <span class="divider-line"></span>
+        <span class="divider-dot">✦</span>
+        <span class="divider-line"></span>
       </div>
 
       <form class="section-panel form-panel" [formGroup]="calculationForm" (ngSubmit)="calculate()" novalidate>
-        <ion-item lines="none">
-          <ion-label position="stacked">Litros de leche</ion-label>
-          <ion-input
-            type="number"
-            inputmode="decimal"
-            min="0.01"
-            step="0.01"
-            placeholder="Ejemplo: 10"
-            formControlName="milkLiters"
-            aria-describedby="milk-liters-error"
-          ></ion-input>
-        </ion-item>
+
+        <div class="field-group">
+          <label class="field-label">
+            <ion-icon name="water-outline"></ion-icon>
+            Litros de leche
+          </label>
+          <div class="input-wrap">
+            <span class="input-prefix">🥛</span>
+            <ion-input
+              type="number"
+              inputmode="decimal"
+              min="0.01"
+              step="0.01"
+              placeholder="Ejemplo: 10"
+              formControlName="milkLiters"
+              aria-describedby="milk-liters-error"
+            ></ion-input>
+            <span class="input-suffix">L</span>
+          </div>
+        </div>
 
         <p
           id="milk-liters-error"
           class="validation-message"
           *ngIf="milkLitersControl.invalid && (milkLitersControl.touched || submitted)"
         >
-          Ingresa un numero mayor a 0.
+          <ion-icon name="alert-circle-outline"></ion-icon>
+          Ingresa un número mayor a 0.
         </p>
 
-        <ion-button type="submit" expand="block">Calcular ingredientes</ion-button>
+        <ion-button type="submit" expand="block">
+          <ion-icon name="calculator-outline" slot="start"></ion-icon>
+          Calcular ingredientes
+        </ion-button>
+
       </form>
 
-      <ion-button class="link-button" fill="clear" expand="block" routerLink="/help">Ver ayuda</ion-button>
+      <div class="hint-row">
+        <span class="hint-icon">💡</span>
+        <p class="hint-text">
+          Por cada <strong>10 L</strong> de leche se usan aproximadamente
+          <strong>200 g</strong> de sal y <strong>2 ml</strong> de cuajo.
+        </p>
+      </div>
+
+      <ion-button class="link-button" fill="outline" expand="block" routerLink="/help">
+        <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+        Ver ayuda
+      </ion-button>
+
     </section>
   </main>
 </ion-content>

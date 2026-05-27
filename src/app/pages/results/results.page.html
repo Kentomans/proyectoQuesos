@@ -6,30 +6,77 @@
 
 <ion-content>
   <main class="app-page">
-    <section class="content-shell results-section" aria-labelledby="results-title" *ngIf="calculation">
-      <div>
-        <h1 id="results-title" class="page-title">Resultado del calculo</h1>
-        <p class="page-copy">Cantidades calculadas con proporcionalidad directa.</p>
+    <section class="content-shell results-section"
+             aria-labelledby="results-title"
+             *ngIf="calculation">
+
+      <div class="header-block">
+        <h1 id="results-title" class="page-title">✅ Resultado del cálculo</h1>
+        <p class="page-copy">Cantidades calculadas con proporcionalidad directa a los litros ingresados.</p>
       </div>
 
+      <div class="divider-row">
+        <span class="divider-line"></span>
+        <span class="divider-dot">✦</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- Litros ingresados -->
+      <div class="input-summary-card">
+        <div class="input-summary-left">
+          <span class="input-icon">🥛</span>
+          <div>
+            <span class="input-summary-label">Leche ingresada</span>
+            <span class="input-summary-value">
+              {{ calculation.milkLiters }}<span class="input-unit"> L</span>
+            </span>
+          </div>
+        </div>
+        <ion-icon name="checkmark-circle" style="font-size:24px; color:#FFCF6A; opacity:0.85"></ion-icon>
+      </div>
+
+      <!-- Resultados -->
       <div class="results-grid">
+
         <article class="result-card">
-          <span class="result-label">Litros de leche</span>
-          <strong>{{ calculation.milkLiters }} L</strong>
+          <div class="result-icon-wrap icon-salt">🧂</div>
+          <div class="result-body">
+            <span class="result-label">Sal calculada</span>
+            <p class="result-value">
+              {{ calculation.salt }}<span class="result-unit"> g</span>
+            </p>
+            <p class="result-desc">Agregar durante la coagulación</p>
+          </div>
+          <span class="result-badge badge-salt">Sal</span>
         </article>
 
         <article class="result-card">
-          <span class="result-label">Sal calculada</span>
-          <strong>{{ calculation.salt }} kg</strong>
+          <div class="result-icon-wrap icon-rennet">⚗️</div>
+          <div class="result-body">
+            <span class="result-label">Cuajo calculado</span>
+            <p class="result-value">
+              {{ calculation.rennet }}<span class="result-unit"> ml</span>
+            </p>
+            <p class="result-desc">Agregar a temperatura de 35 °C</p>
+          </div>
+          <span class="result-badge badge-rennet">Cuajo</span>
         </article>
 
-        <article class="result-card">
-          <span class="result-label">Cuajo calculado</span>
-          <strong>{{ calculation.rennet }} L</strong>
-        </article>
       </div>
 
-      <ion-button expand="block" (click)="newCalculation()">Nuevo calculo</ion-button>
+      <div class="tip-row">
+        <span class="tip-icon">⚠️</span>
+        <p class="tip-text">
+          Estos valores son referenciales. La cantidad exacta puede variar
+          según el tipo de queso y leche utilizada.
+        </p>
+      </div>
+
+      <ion-button expand="block" (click)="newCalculation()">
+        <ion-icon name="refresh-outline" slot="start"></ion-icon>
+        Nuevo cálculo
+      </ion-button>
+
     </section>
   </main>
 </ion-content>
