@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Resultados</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main class="app-page">
+    <section class="content-shell results-section" aria-labelledby="results-title" *ngIf="calculation">
+      <div>
+        <h1 id="results-title" class="page-title">Resultado del calculo</h1>
+        <p class="page-copy">Cantidades calculadas con proporcionalidad directa.</p>
+      </div>
+
+      <div class="results-grid">
+        <article class="result-card">
+          <span class="result-label">Litros de leche</span>
+          <strong>{{ calculation.milkLiters }} L</strong>
+        </article>
+
+        <article class="result-card">
+          <span class="result-label">Sal calculada</span>
+          <strong>{{ calculation.salt }} kg</strong>
+        </article>
+
+        <article class="result-card">
+          <span class="result-label">Cuajo calculado</span>
+          <strong>{{ calculation.rennet }} L</strong>
+        </article>
+      </div>
+
+      <ion-button expand="block" (click)="newCalculation()">Nuevo calculo</ion-button>
+    </section>
+  </main>
+</ion-content>

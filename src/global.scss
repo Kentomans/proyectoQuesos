@@ -34,4 +34,92 @@
 
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
-@import "@ionic/angular/css/palettes/dark.system.css";
+/* @import "@ionic/angular/css/palettes/dark.system.css"; */
+
+:root {
+  --color-cafe-principal: #8C774C;
+  --color-cafe-oscuro: #595242;
+  --color-crema: #F2E7D0;
+  --color-amarillo-suave: #FFE2A8;
+  --color-amarillo-queso: #FFCF6A;
+}
+
+html,
+body {
+  background: var(--color-crema);
+  color: var(--color-cafe-oscuro);
+}
+
+ion-content {
+  --background: var(--color-crema);
+}
+
+ion-toolbar {
+  --background: var(--color-cafe-principal);
+  --color: #ffffff;
+}
+
+ion-button {
+  min-height: 48px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+ion-button.button-solid {
+  --background: var(--color-amarillo-queso);
+  --background-activated: var(--color-amarillo-suave);
+  --background-focused: var(--color-amarillo-suave);
+  --background-hover: var(--color-amarillo-suave);
+  --color: var(--color-cafe-oscuro);
+}
+
+.app-page {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 18px;
+}
+
+.content-shell {
+  width: min(100%, 720px);
+  margin: 0 auto;
+}
+
+.page-title {
+  color: var(--color-cafe-oscuro);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+
+.page-copy {
+  color: var(--color-cafe-oscuro);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.section-panel,
+.result-card {
+  background: var(--color-amarillo-suave);
+  border: 2px solid rgba(89, 82, 66, 0.16);
+  border-radius: 8px;
+  color: var(--color-cafe-oscuro);
+  padding: 18px;
+}
+
+.action-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.link-button {
+  --background: transparent;
+  --box-shadow: none;
+  --color: var(--color-cafe-oscuro);
+  border: 2px solid var(--color-cafe-principal);
+  border-radius: 8px;
+}

@@ -1,0 +1,28 @@
+.calculation-section {
+  display: grid;
+  gap: 18px;
+}
+
+.form-panel {
+  display: grid;
+  gap: 16px;
+}
+
+ion-item {
+  --background: #ffffff;
+  --border-radius: 8px;
+  --color: var(--color-cafe-oscuro);
+  border: 2px solid rgba(89, 82, 66, 0.18);
+  border-radius: 8px;
+}
+
+ion-input {
+  --color: var(--color-cafe-oscuro);
+}
+
+.validation-message {
+  color: #6f251b;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin: -4px 0 0;
+}

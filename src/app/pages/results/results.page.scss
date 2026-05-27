@@ -1,0 +1,26 @@
+.results-section {
+  display: grid;
+  gap: 18px;
+}
+
+.results-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.result-card {
+  display: grid;
+  gap: 10px;
+}
+
+.result-label {
+  color: var(--color-cafe-oscuro);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+strong {
+  color: var(--color-cafe-oscuro);
+  font-size: 2rem;
+  line-height: 1.1;
+}
