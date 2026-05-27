@@ -29,21 +29,19 @@ Supervisar estructura, flujo, estandares y entrega final del proyecto Cheese Cal
 
 ## Archivos asignados
 - `README.md`
-- `CONTRIBUTING.md`
 - `docs/planeacion`
 - `docs/requerimientos`
 
 ## Documentacion a leer en orden
 1. `README.md`
-2. `CONTRIBUTING.md`
-3. `docs/planeacion/roles-equipo.md`
-4. `docs/planeacion/cronograma.md`
-5. `docs/planeacion/flujo-navegacion.md`
-6. `docs/requerimientos/funcionales.md`
-7. `docs/requerimientos/no-funcionales.md`
-8. `docs/requerimientos/criterios-aceptacion.md`
-9. `docs/manuales/manual-tecnico.md`
-10. `docs/manuales/manual-usuario.md`
+2. `docs/planeacion/roles-equipo.md`
+3. `docs/planeacion/cronograma.md`
+4. `docs/planeacion/flujo-navegacion.md`
+5. `docs/requerimientos/funcionales.md`
+6. `docs/requerimientos/no-funcionales.md`
+7. `docs/requerimientos/criterios-aceptacion.md`
+8. `docs/manuales/manual-tecnico.md`
+9. `docs/manuales/manual-usuario.md`
 
 ## Criterios de aceptacion
 - [ ] Funciona correctamente
