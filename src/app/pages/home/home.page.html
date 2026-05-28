@@ -7,19 +7,56 @@
 <ion-content>
   <main class="app-page home-page">
     <section class="content-shell hero-section" aria-labelledby="home-title">
-      <div class="brand-mark" aria-label="Marca visual de Cheese Calculator">
-        <span>CHEESE</span>
+
+      <div class="brand-mark" aria-label="Logo Cheese Calculator">
+        <div class="brand-holes">
+          <span class="hole hole-1"></span>
+          <span class="hole hole-2"></span>
+          <span class="hole hole-3"></span>
+        </div>
+        <span class="brand-icon">🧀</span>
+        <span class="brand-text">CHEESE</span>
       </div>
 
       <h1 id="home-title" class="page-title">Cheese Calculator</h1>
+
       <p class="page-copy">
-        Calcula de forma rapida la sal y el cuajo necesarios para producir queso a partir de los litros de leche ingresados.
+        Calcula de forma rápida la sal y el cuajo necesarios
+        para producir queso a partir de los litros de leche ingresados.
       </p>
 
-      <div class="action-stack">
-        <ion-button expand="block" routerLink="/calculation">Comenzar</ion-button>
-        <ion-button class="link-button" fill="clear" expand="block" routerLink="/help">Ayuda</ion-button>
+      <div class="divider-row">
+        <span class="divider-line"></span>
+        <span class="divider-dot">✦</span>
+        <span class="divider-line"></span>
       </div>
+
+      <div class="action-stack">
+        <ion-button expand="block" routerLink="/calculation">
+          <ion-icon name="calculator-outline" slot="start"></ion-icon>
+          Comenzar
+        </ion-button>
+        <ion-button class="link-button" fill="outline" expand="block" routerLink="/help">
+          <ion-icon name="help-circle-outline" slot="start"></ion-icon>
+          Ayuda
+        </ion-button>
+      </div>
+
+      <div class="info-chips">
+        <div class="chip">
+          <span class="chip-icon">🥛</span>
+          <span class="chip-label">Litros de leche</span>
+        </div>
+        <div class="chip">
+          <span class="chip-icon">🧂</span>
+          <span class="chip-label">Sal exacta</span>
+        </div>
+        <div class="chip">
+          <span class="chip-icon">⚗️</span>
+          <span class="chip-label">Cuajo preciso</span>
+        </div>
+      </div>
+
     </section>
   </main>
 </ion-content>

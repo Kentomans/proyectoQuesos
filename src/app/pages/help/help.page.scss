@@ -1,15 +1,223 @@
+ion-toolbar {
+  --background: var(--color-cafe-oscuro);
+  --color: var(--color-crema);
+}
+
+ion-content { --background: var(--color-crema); }
+
 .help-section {
   display: grid;
-  gap: 16px;
+  gap: 20px;
+  padding: 28px 20px;
 }
 
-h2 {
+.header-block { display: grid; gap: 6px; }
+
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
   color: var(--color-cafe-oscuro);
-  font-size: 1.2rem;
-  margin: 0 0 8px;
 }
 
-p {
+.page-copy {
+  font-size: 13px;
+  color: var(--color-cafe-principal);
+  line-height: 1.65;
+}
+
+.divider-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.divider-line { flex: 1; height: 1px; background: var(--color-cafe-principal); opacity: 0.25; }
+.divider-dot  { font-size: 12px; color: var(--color-cafe-principal); opacity: 0.4; }
+
+/* Pasos */
+.steps-card {
+  background: #fff8ed;
+  border: 2px solid var(--color-amarillo-queso);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 3px 3px 0 var(--color-cafe-principal);
+}
+
+.card-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-cafe-principal);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.step-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 12px;
+  &:last-child { margin-bottom: 0; }
+}
+
+.step-num {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--color-cafe-principal);
+  color: var(--color-crema);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-text {
+  font-size: 13px;
+  color: var(--color-cafe-oscuro);
   line-height: 1.55;
-  margin: 0 0 8px;
+  padding-top: 3px;
+  strong { font-weight: 700; }
+}
+
+/* Fórmulas */
+.formula-card {
+  background: var(--color-cafe-oscuro);
+  border-radius: 14px;
+  padding: 18px 20px;
+  box-shadow: 3px 3px 0 rgba(89,82,66,0.4);
+}
+
+.formula-card-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-amarillo-queso);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.formula-row {
+  background: rgba(242,231,208,0.08);
+  border: 1px solid rgba(255,207,106,0.25);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  &:last-child { margin-bottom: 0; }
+}
+
+.formula-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.formula-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.fi-salt    { background: rgba(255,226,168,0.18); }
+.fi-rennet  { background: rgba(200,230,201,0.18); }
+
+.formula-name {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-crema);
+  margin-bottom: 2px;
+}
+
+.formula-expr {
+  font-size: 11px;
+  color: var(--color-amarillo-suave);
+  opacity: 0.8;
+  font-family: monospace;
+}
+
+.formula-result {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-amarillo-queso);
+  background: rgba(255,207,106,0.15);
+  border: 1px solid rgba(255,207,106,0.3);
+  border-radius: 6px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+/* Info cards */
+.info-card {
+  background: #fff8ed;
+  border: 2px solid var(--color-amarillo-queso);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 3px 3px 0 var(--color-cafe-principal);
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.info-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--color-amarillo-suave);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.info-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-cafe-oscuro);
+  margin-bottom: 5px;
+}
+
+.info-text {
+  font-size: 12.5px;
+  color: var(--color-cafe-principal);
+  line-height: 1.6;
+}
+
+/* Botones */
+.action-stack { display: grid; gap: 10px; }
+
+ion-button {
+  --background: var(--color-cafe-principal);
+  --color: var(--color-crema);
+  --border-radius: 10px;
+  --border-color: var(--color-cafe-oscuro);
+  --border-width: 2px;
+  --border-style: solid;
+  --box-shadow: 3px 3px 0 var(--color-cafe-oscuro);
+  font-weight: 600;
+}
+
+.link-button {
+  --background: transparent;
+  --color: var(--color-cafe-principal);
+  --border-color: var(--color-cafe-principal);
+  --box-shadow: none;
 }

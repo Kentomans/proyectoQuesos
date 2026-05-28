@@ -7,38 +7,111 @@
 <ion-content>
   <main class="app-page">
     <section class="content-shell help-section" aria-labelledby="help-title">
-      <div>
-        <h1 id="help-title" class="page-title">Como funciona</h1>
+
+      <div class="header-block">
+        <h1 id="help-title" class="page-title">📖 Cómo funciona</h1>
         <p class="page-copy">
-          La app recibe los litros de leche y calcula ingredientes usando proporcionalidad directa.
+          La app recibe los litros de leche y calcula los ingredientes
+          usando proporcionalidad directa.
         </p>
       </div>
 
-      <article class="section-panel">
-        <h2>Formulas</h2>
-        <p>Sal = litros de leche x 0.02</p>
-        <p>Cuajo = litros de leche x 0.005</p>
+      <div class="divider-row">
+        <span class="divider-line"></span>
+        <span class="divider-dot">✦</span>
+        <span class="divider-line"></span>
+      </div>
+
+      <!-- Pasos -->
+      <article class="steps-card section-panel">
+        <h2 class="card-title">
+          <ion-icon name="list-outline"></ion-icon>
+          Pasos para usar la app
+        </h2>
+        <div class="step-row">
+          <span class="step-num">1</span>
+          <p class="step-text">Ve a <strong>Cálculo</strong> e ingresa los litros de leche que vas a usar.</p>
+        </div>
+        <div class="step-row">
+          <span class="step-num">2</span>
+          <p class="step-text">Presiona <strong>Calcular ingredientes</strong> para obtener los resultados.</p>
+        </div>
+        <div class="step-row">
+          <span class="step-num">3</span>
+          <p class="step-text">Consulta las cantidades de <strong>sal</strong> y <strong>cuajo</strong> en la pantalla de resultados.</p>
+        </div>
       </article>
 
-      <article class="section-panel">
-        <h2>Responsabilidad</h2>
-        <p>Usar datos correctos ayuda a tomar mejores decisiones durante la produccion.</p>
+      <!-- Fórmulas -->
+      <article class="formula-card section-panel">
+        <h2 class="formula-card-title">
+          <ion-icon name="calculator-outline"></ion-icon>
+          Fórmulas utilizadas
+        </h2>
+        <div class="formula-row">
+          <div class="formula-left">
+            <span class="formula-icon fi-salt">🧂</span>
+            <div>
+              <span class="formula-name">Sal</span>
+              <span class="formula-expr">litros × 0.02</span>
+            </div>
+          </div>
+          <span class="formula-result">ej. 10 L → 200 g</span>
+        </div>
+        <div class="formula-row">
+          <div class="formula-left">
+            <span class="formula-icon fi-rennet">⚗️</span>
+            <div>
+              <span class="formula-name">Cuajo</span>
+              <span class="formula-expr">litros × 0.005</span>
+            </div>
+          </div>
+          <span class="formula-result">ej. 10 L → 50 ml</span>
+        </div>
       </article>
 
-      <article class="section-panel">
-        <h2>Inclusion</h2>
-        <p>La interfaz usa textos claros, buen contraste y botones grandes para facilitar el acceso.</p>
+      <!-- Info cards -->
+      <article class="info-card section-panel">
+        <div class="info-icon-wrap">⚠️</div>
+        <div class="info-body">
+          <h2 class="info-title">Responsabilidad</h2>
+          <p class="info-text">Usar datos correctos ayuda a tomar mejores decisiones durante la producción. Los valores son referenciales.</p>
+        </div>
       </article>
 
-      <article class="section-panel">
-        <h2>Trabajo colaborativo</h2>
-        <p>El proyecto esta organizado para que cada integrante pueda avanzar sin bloquear a los demas.</p>
+      <article class="info-card section-panel">
+        <div class="info-icon-wrap">♿</div>
+        <div class="info-body">
+          <h2 class="info-title">Accesibilidad</h2>
+          <p class="info-text">La interfaz usa textos claros, buen contraste y botones grandes para facilitar el acceso a todos los usuarios.</p>
+        </div>
       </article>
+
+      <article class="info-card section-panel">
+        <div class="info-icon-wrap">🤝</div>
+        <div class="info-body">
+          <h2 class="info-title">Trabajo colaborativo</h2>
+          <p class="info-text">El proyecto está organizado para que cada integrante pueda avanzar sin bloquear a los demás.</p>
+        </div>
+      </article>
+
+      <div class="divider-row">
+        <span class="divider-line"></span>
+        <span class="divider-dot">✦</span>
+        <span class="divider-line"></span>
+      </div>
 
       <div class="action-stack">
-        <ion-button expand="block" routerLink="/calculation">Ir al calculo</ion-button>
-        <ion-button class="link-button" fill="clear" expand="block" routerLink="/home">Inicio</ion-button>
+        <ion-button expand="block" routerLink="/calculation">
+          <ion-icon name="calculator-outline" slot="start"></ion-icon>
+          Volver a calcular
+        </ion-button>
+        <ion-button class="link-button" fill="outline" expand="block" routerLink="/home">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          Regresar al inicio
+        </ion-button>
       </div>
+
     </section>
   </main>
 </ion-content>
