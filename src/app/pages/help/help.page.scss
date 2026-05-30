@@ -54,14 +54,16 @@ ion-content { --background: var(--color-crema); }
   gap: 6px;
 }
 
+/* ✅ FIX: align-items: center elimina el desface entre número y texto */
 .step-row {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
   margin-bottom: 12px;
   &:last-child { margin-bottom: 0; }
 }
 
+/* ✅ FIX: se eliminó margin-top: 2px que desalineaba el círculo */
 .step-num {
   width: 26px;
   height: 26px;
@@ -74,14 +76,13 @@ ion-content { --background: var(--color-crema); }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
+/* ✅ FIX: se eliminó padding-top: 3px que bajaba el texto artificialmente */
 .step-text {
   font-size: 13px;
   color: var(--color-cafe-oscuro);
   line-height: 1.55;
-  padding-top: 3px;
   strong { font-weight: 700; }
 }
 
