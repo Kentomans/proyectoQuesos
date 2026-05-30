@@ -11,13 +11,13 @@
              *ngIf="calculation">
 
       <div class="header-block">
-        <h1 id="results-title" class="page-title">✅ Resultado del cálculo</h1>
+        <h1 id="results-title" class="page-title">Resultado del cálculo</h1>
         <p class="page-copy">Cantidades calculadas con proporcionalidad directa a los litros ingresados.</p>
       </div>
 
       <div class="divider-row">
         <span class="divider-line"></span>
-        <span class="divider-dot">✦</span>
+        <span class="divider-dot"></span>
         <span class="divider-line"></span>
       </div>
 
@@ -45,7 +45,6 @@
             <p class="result-value">
               {{ calculation.salt }}<span class="result-unit"> g</span>
             </p>
-            <p class="result-desc">Agregar durante la coagulación</p>
           </div>
           <span class="result-badge badge-salt">Sal</span>
         </article>
@@ -57,19 +56,10 @@
             <p class="result-value">
               {{ calculation.rennet }}<span class="result-unit"> ml</span>
             </p>
-            <p class="result-desc">Agregar a temperatura de 35 °C</p>
           </div>
           <span class="result-badge badge-rennet">Cuajo</span>
         </article>
 
-      </div>
-
-      <div class="tip-row">
-        <span class="tip-icon">⚠️</span>
-        <p class="tip-text">
-          Estos valores son referenciales. La cantidad exacta puede variar
-          según el tipo de queso y leche utilizada.
-        </p>
       </div>
 
       <ion-button expand="block" (click)="newCalculation()">
