@@ -11,6 +11,8 @@
 - La arquitectura debe separar paginas, servicios y modelos.
 - La aplicacion no debe mostrar errores en consola.
 - No se debe usar backend, base de datos ni almacenamiento local.
+- El proyecto debe poder empaquetarse como APK Android mediante Capacitor.
+- Los archivos generados de compilacion, como `apk/` y `android/app/build/`, no deben versionarse en Git.
 
 ## Accesibilidad
 - Los campos deben tener etiquetas claras.

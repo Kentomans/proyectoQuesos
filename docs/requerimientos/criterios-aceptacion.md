@@ -24,6 +24,8 @@
 
 ## Calidad
 - [ ] La app compila correctamente.
+- [ ] La app puede generar APK debug con Capacitor y Gradle.
+- [ ] La APK generada no se sube al repositorio.
 - [ ] No hay errores de consola.
 - [ ] El diseno es responsivo.
 - [ ] La paleta oficial se respeta.

@@ -20,6 +20,7 @@ Crear una base profesional, escalable y colaborativa para un equipo de 5 desarro
 - HTML
 - SCSS
 - Capacitor
+- Android SDK / Gradle para generar APK debug
 
 ## Paleta oficial
 ```scss
@@ -79,7 +80,9 @@ cuajo = litrosDeLeche * 0.005;
 ```text
 /
 |-- README.md
+|-- capacitor.config.ts
 |-- package.json
+|-- android/
 |-- TO DO/
 |   |-- Valentin.md
 |   |-- Ian.md
@@ -120,15 +123,39 @@ Flujo principal de carpetas:
 - `docs`: documentacion del proyecto y evidencias.
 - `TO DO`: tareas y lecturas asignadas a cada integrante.
 - `src/theme` y `src/global.scss`: tema visual, paleta y estilos globales.
+- `android`: proyecto nativo generado por Capacitor para compilar APK.
 
 Nota: `src/app/home` pertenece a la estructura base generada por Ionic. El desarrollo principal de Cheese Calculator esta organizado en `src/app/pages`.
 
 ## Instalacion
-```bash
+```powershell
 npm install
-ionic serve
-ionic build
+npm.cmd start
+npm.cmd run build
 ```
+
+## Generacion de APK Android
+El proyecto ya incluye la plataforma Android de Capacitor. Para generar una APK debug en Windows:
+
+```powershell
+npm.cmd run build
+npx.cmd cap sync android
+cd android
+$env:JAVA_HOME='C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot'
+$env:Path="$env:JAVA_HOME\bin;$env:Path"
+.\gradlew.bat assembleDebug
+cd ..
+New-Item -ItemType Directory -Force -Path apk
+Copy-Item android\app\build\outputs\apk\debug\app-debug.apk apk\proyectoQuesos-debug.apk -Force
+```
+
+La APK lista para compartir queda en `apk/proyectoQuesos-debug.apk`.
+
+Notas importantes:
+- `apk/` no se sube al repositorio porque contiene archivos generados.
+- `android/app/build/` tampoco se sube; es salida temporal de Gradle.
+- Si no existe Android SDK local, instalarlo en `C:\Users\Angel\AppData\Local\Android\Sdk` o configurar `android/local.properties`.
+- Gradle debe ejecutarse con JDK 17 o superior. En este equipo se usa JDK 21 de Eclipse Adoptium.
 
 ## Roles del equipo
 - Kento: lider de proyecto y supervision.
@@ -142,4 +169,3 @@ ionic build
 - Dia 2: crear pantallas, calculos, validaciones, estilos iniciales y paleta oficial.
 - Dia 3: resultados, ayuda, accesibilidad, documentacion tecnica y testing inicial.
 - Dia 4: testing final, correccion de bugs, revision responsive, manuales, evidencias y entrega final.
-

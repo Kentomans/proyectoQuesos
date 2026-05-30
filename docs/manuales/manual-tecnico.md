@@ -58,6 +58,7 @@ El archivo `package.json` define las dependencias del proyecto:
 - Angular 20.
 - Ionic Angular 8.
 - Capacitor 8.
+- Capacitor Android 8.
 - TypeScript 5.9.
 - Ionicons 7.
 - Karma y Jasmine para pruebas.
@@ -84,6 +85,9 @@ Para instalar y ejecutar el proyecto se requiere:
 - Angular CLI.
 - Ionic CLI, recomendado para desarrollo movil.
 - Navegador moderno para pruebas locales.
+- JDK 17 o superior para compilar Android. En este equipo se usa JDK 21 de Eclipse Adoptium.
+- Android SDK con `platform-tools`, `platforms;android-36` y `build-tools;36.0.0`.
+- Gradle wrapper incluido en la carpeta `android/`.
 
 Instalacion:
 
@@ -102,6 +106,94 @@ Compilacion de produccion:
 ```bash
 npm run build
 ```
+
+## 6.1 Configuracion Android y APK
+
+El proyecto incluye la plataforma Android generada por Capacitor en la carpeta:
+
+```text
+android/
+```
+
+Configuracion principal:
+
+- `capacitor.config.ts`: define `appId`, `appName` y `webDir`.
+- `android/`: contiene el proyecto nativo Android.
+- `android/local.properties`: define la ruta local del Android SDK y no se sube al repositorio.
+- `android/.gitignore`: excluye salidas de compilacion como `build/`, `.gradle/`, assets copiados y configuraciones locales.
+- `.gitignore`: excluye `apk/` para evitar subir APKs generadas al repositorio.
+
+Ruta local del Android SDK usada en este equipo:
+
+```text
+C:\Users\Angel\AppData\Local\Android\Sdk
+```
+
+Paquetes Android requeridos:
+
+```text
+platform-tools
+platforms;android-36
+build-tools;36.0.0
+```
+
+Para instalar paquetes desde `sdkmanager`:
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot'
+$env:Path="$env:JAVA_HOME\bin;$env:Path"
+$sdk='C:\Users\Angel\AppData\Local\Android\Sdk'
+& "$sdk\cmdline-tools\latest\bin\sdkmanager.bat" --sdk_root="$sdk" "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+```
+
+Para aceptar licencias del SDK:
+
+```powershell
+$env:JAVA_HOME='C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot'
+$env:Path="$env:JAVA_HOME\bin;$env:Path"
+$sdk='C:\Users\Angel\AppData\Local\Android\Sdk'
+(1..50 | ForEach-Object { 'y' }) | & "$sdk\cmdline-tools\latest\bin\sdkmanager.bat" --sdk_root="$sdk" --licenses
+```
+
+## 6.2 Generacion de APK debug
+
+Antes de compilar Android debe generarse el build web y sincronizar Capacitor:
+
+```powershell
+npm.cmd run build
+npx.cmd cap sync android
+```
+
+Despues se compila la APK debug con Gradle:
+
+```powershell
+cd android
+$env:JAVA_HOME='C:\Program Files\Eclipse Adoptium\jdk-21.0.4.7-hotspot'
+$env:Path="$env:JAVA_HOME\bin;$env:Path"
+.\gradlew.bat assembleDebug
+cd ..
+```
+
+Salida original generada por Gradle:
+
+```text
+android/app/build/outputs/apk/debug/app-debug.apk
+```
+
+Para copiarla a una carpeta mas sencilla de ubicar:
+
+```powershell
+New-Item -ItemType Directory -Force -Path apk
+Copy-Item android\app\build\outputs\apk\debug\app-debug.apk apk\proyectoQuesos-debug.apk -Force
+```
+
+APK final recomendada para compartir:
+
+```text
+apk/proyectoQuesos-debug.apk
+```
+
+No se recomienda subir APKs generadas al repositorio. Si se necesita compartir una version compilada, usar una entrega externa o una release de GitHub.
 
 ## 7. Estructura de carpetas
 
@@ -451,7 +543,8 @@ Reglas de mantenimiento:
 - Agregar configuracion de proporciones.
 - Agregar pruebas unitarias completas del servicio.
 - Ajustar conversion visual de unidades a gramos y mililitros si ese sera el criterio final.
-- Preparar build movil con Capacitor para Android/iOS.
+- Preparar build release firmado para distribucion Android.
+- Evaluar empaquetado iOS si el proyecto requiere soporte para esa plataforma.
 
 ## 23. Conclusion
 

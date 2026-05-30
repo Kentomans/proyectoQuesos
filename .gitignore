@@ -29,6 +29,7 @@ log.txt
 /out-tsc
 /bazel-out
 /android-sdk
+/apk
 
 # Node
 /node_modules

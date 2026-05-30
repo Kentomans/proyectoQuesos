@@ -44,6 +44,16 @@ Para usar la aplicacion necesitas:
 - Conocer la cantidad de litros de leche que deseas usar.
 - Ingresar un valor numerico mayor a 0.
 
+Si se entrega como archivo Android, la aplicacion se instala desde una APK generada por el equipo.
+
+Archivo recomendado para compartir:
+
+```text
+apk/proyectoQuesos-debug.apk
+```
+
+Nota: esta APK es una version debug para pruebas y entrega escolar. Android puede pedir permiso para instalar aplicaciones de origen desconocido.
+
 ## 5. Pantallas principales
 
 ### Inicio
@@ -234,6 +244,10 @@ Las formulas son proporcionales y generales. Algunas recetas cambian segun tipo 
 ### No encuentro el boton de ayuda
 
 En Inicio aparece como Ayuda. En Calculo aparece como Ver ayuda.
+
+### Android no me deja instalar la APK
+
+Revisa que el dispositivo permita instalar aplicaciones externas. En algunos celulares se debe activar el permiso de instalacion para la app desde la que se abre la APK, por ejemplo el explorador de archivos o el navegador.
 
 ## 17. Glosario
 
