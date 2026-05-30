@@ -16,8 +16,8 @@
 - [ ] La app muestra mensajes claros cuando hay errores.
 
 ## Resultados
-- [ ] La sal se calcula con `litrosDeLeche * 0.02`.
-- [ ] El cuajo se calcula con `litrosDeLeche * 0.005`.
+- [ ] La sal se muestra en gramos y se calcula con `litrosDeLeche * 20`.
+- [ ] El cuajo se muestra en mililitros y se calcula con `litrosDeLeche * 5`.
 - [ ] Los resultados se presentan en tarjetas visuales.
 - [ ] No existe boton de guardar.
 - [ ] No se guardan resultados.

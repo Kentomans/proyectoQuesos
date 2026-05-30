@@ -6,8 +6,8 @@ import { CheeseCalculationModel } from '../models/cheese-calculation.model';
   providedIn: 'root',
 })
 export class CalculationService {
-  private readonly saltRatio = 0.02;
-  private readonly rennetRatio = 0.005;
+  private readonly saltGramsPerLiter = 20;
+  private readonly rennetMillilitersPerLiter = 5;
   private currentCalculation: CheeseCalculationModel | null = null;
 
   calculateIngredients(milkLiters: number): CheeseCalculationModel {
@@ -17,8 +17,8 @@ export class CalculationService {
 
     const calculation: CheeseCalculationModel = {
       milkLiters,
-      salt: this.roundIngredient(milkLiters * this.saltRatio),
-      rennet: this.roundIngredient(milkLiters * this.rennetRatio),
+      salt: this.roundIngredient(milkLiters * this.saltGramsPerLiter),
+      rennet: this.roundIngredient(milkLiters * this.rennetMillilitersPerLiter),
     };
 
     this.currentCalculation = calculation;

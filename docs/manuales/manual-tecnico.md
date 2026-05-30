@@ -357,8 +357,8 @@ export interface CheeseCalculationModel {
 Campos:
 
 - `milkLiters`: litros de leche ingresados por el usuario.
-- `salt`: cantidad calculada de sal.
-- `rennet`: cantidad calculada de cuajo.
+- `salt`: cantidad calculada de sal en gramos.
+- `rennet`: cantidad calculada de cuajo en mililitros.
 
 ## 12. Servicio de calculo
 
@@ -373,6 +373,7 @@ Responsabilidades:
 - Centralizar las formulas matematicas.
 - Validar que los litros sean un numero finito mayor a 0.
 - Redondear resultados a 3 decimales.
+- Entregar la sal en gramos y el cuajo en mililitros para que coincidan con la interfaz.
 - Mantener el ultimo calculo en memoria.
 - Limpiar el calculo cuando se inicia un nuevo flujo.
 
@@ -389,15 +390,15 @@ clearCalculation(): void
 Las constantes de proporcion estan definidas dentro de `CalculationService`:
 
 ```ts
-private readonly saltRatio = 0.02;
-private readonly rennetRatio = 0.005;
+private readonly saltGramsPerLiter = 20;
+private readonly rennetMillilitersPerLiter = 5;
 ```
 
 Formulas:
 
 ```ts
-salt = milkLiters * 0.02;
-rennet = milkLiters * 0.005;
+salt = milkLiters * 20;
+rennet = milkLiters * 5;
 ```
 
 Los resultados se redondean con:
@@ -408,9 +409,9 @@ Number(value.toFixed(3))
 
 Nota tecnica sobre unidades:
 
-- El modelo documenta `salt` como kilogramos y `rennet` como litros.
-- La interfaz de resultados presenta los valores con unidades visuales de gramos y mililitros.
-- Si se desea mostrar gramos y mililitros reales, debe aplicarse conversion antes de pintar el resultado: `saltKg * 1000` y `rennetL * 1000`.
+- El modelo guarda `salt` directamente en gramos.
+- El modelo guarda `rennet` directamente en mililitros.
+- La pantalla de resultados muestra esas mismas unidades, por lo que no se debe aplicar una segunda conversion en la vista.
 
 ## 14. Validaciones
 
@@ -518,7 +519,7 @@ npm run lint
 
 Pruebas de servicio sugeridas:
 
-- `calculateIngredients(10)` debe producir `salt = 0.2` y `rennet = 0.05`.
+- `calculateIngredients(10)` debe producir `salt = 200` y `rennet = 50`.
 - `calculateIngredients(0)` debe lanzar error.
 - `calculateIngredients(NaN)` debe lanzar error.
 - `clearCalculation()` debe dejar el resultado actual en `null`.
@@ -542,7 +543,7 @@ Reglas de mantenimiento:
 - Permitir seleccionar tipo de queso.
 - Agregar configuracion de proporciones.
 - Agregar pruebas unitarias completas del servicio.
-- Ajustar conversion visual de unidades a gramos y mililitros si ese sera el criterio final.
+- Mantener sincronizadas las formulas, la interfaz y la documentacion cuando cambien las unidades.
 - Preparar build release firmado para distribucion Android.
 - Evaluar empaquetado iOS si el proyecto requiere soporte para esa plataforma.
 

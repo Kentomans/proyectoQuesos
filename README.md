@@ -72,8 +72,8 @@ La aplicacion separa responsabilidades en:
 
 ## Formulas matematicas
 ```ts
-sal = litrosDeLeche * 0.02;
-cuajo = litrosDeLeche * 0.005;
+salGramos = litrosDeLeche * 20;
+cuajoMililitros = litrosDeLeche * 5;
 ```
 
 ## Estructura de carpetas

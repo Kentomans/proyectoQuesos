@@ -133,18 +133,18 @@ Si ingresas:
 La aplicacion aplica las formulas:
 
 ```text
-sal = litros * 0.02
-cuajo = litros * 0.005
+sal en gramos = litros * 20
+cuajo en mililitros = litros * 5
 ```
 
 Resultado base del calculo:
 
 ```text
-sal = 0.2
-cuajo = 0.05
+sal = 200 g
+cuajo = 50 ml
 ```
 
-Nota sobre unidades: la interfaz muestra los resultados con unidades visuales de sal y cuajo. Los valores son referenciales y deben interpretarse de acuerdo con el criterio definido por el equipo o responsable de produccion.
+Nota sobre unidades: la interfaz muestra la sal directamente en gramos y el cuajo directamente en mililitros. Los valores son referenciales y deben interpretarse de acuerdo con el criterio definido por el equipo o responsable de produccion.
 
 ## 9. Validaciones del formulario
 
